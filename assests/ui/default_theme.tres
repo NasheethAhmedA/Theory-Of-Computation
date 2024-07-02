@@ -1,0 +1,65 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cbd4wj2td2xq6"]
+
+[ext_resource type="Texture2D" uid="uid://bo3002m0lp642" path="res://assests/ui/Spritesheets/Spritesheet_UI_Flat_Button_01.png" id="1_swkb0"]
+[ext_resource type="FontFile" uid="uid://donqiurahky62" path="res://assests/ui/Fonts/ThaleahFat.ttf" id="2_psxue"]
+[ext_resource type="Texture2D" uid="uid://dkq8wriafjlon" path="res://assests/ui/Spritesheets/Spritesheet_UI_Flat.png" id="2_vha00"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ndjo"]
+texture = ExtResource("1_swkb0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(112, 131, 64, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83uk6"]
+texture = ExtResource("1_swkb0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(112, 99, 64, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bu0ei"]
+texture = ExtResource("1_swkb0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(112, 166, 64, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4dr3"]
+texture = ExtResource("2_vha00")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(32, 32, 96, 96)
+
+[resource]
+Button/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+Button/colors/font_disabled_color = Color(0.129412, 0.129412, 0.129412, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.117647, 0.117647, 0.117647, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("2_psxue")
+Button/styles/hover = SubResource("StyleBoxTexture_6ndjo")
+Button/styles/normal = SubResource("StyleBoxTexture_83uk6")
+Button/styles/pressed = SubResource("StyleBoxTexture_bu0ei")
+Fonts/fonts/large = ExtResource("2_psxue")
+Fonts/fonts/normal = ExtResource("2_psxue")
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("2_psxue")
+Panel/styles/panel = SubResource("StyleBoxTexture_m4dr3")
+RichTextLabel/font_sizes/bold_font_size = 36
+RichTextLabel/font_sizes/bold_italics_font_size = 36
+RichTextLabel/font_sizes/italics_font_size = 36
+RichTextLabel/font_sizes/mono_font_size = 36
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/bold_font = ExtResource("2_psxue")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_psxue")
+RichTextLabel/fonts/italics_font = ExtResource("2_psxue")
+RichTextLabel/fonts/mono_font = ExtResource("2_psxue")
+RichTextLabel/fonts/normal_font = ExtResource("2_psxue")
