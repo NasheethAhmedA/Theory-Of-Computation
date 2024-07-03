@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfs32i124fif6"]
+
+[ext_resource type="Script" path="res://scripts/ui/state_form.gd" id="1_hdk57"]
+[ext_resource type="StyleBox" uid="uid://dga3l82o36y6o" path="res://assests/ui/State_form_panel.tres" id="1_ovrcc"]
+[ext_resource type="Texture2D" uid="uid://dkq8wriafjlon" path="res://assests/ui/Spritesheets/Spritesheet_UI_Flat.png" id="2_5cugj"]
+[ext_resource type="FontFile" uid="uid://donqiurahky62" path="res://assests/ui/Fonts/ThaleahFat.ttf" id="2_oen3q"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_26ktb"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_cnu2e"]
+events = [SubResource("InputEventKey_26ktb")]
+
+[node name="State_Form" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_hdk57")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_ovrcc")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 9.0
+offset_right = 86.0
+offset_bottom = 42.0
+text = "name"
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 43.0
+offset_right = 81.0625
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("2_oen3q")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "3 letters "
+max_length = 3
+expand_to_text_length = true
+clear_button_enabled = true
+
+[node name="CheckBox" type="CheckBox" parent="Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 88.0
+offset_right = 91.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+keep_pressed_outside = true
+text = "final"
+flat = true
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 143.0
+offset_right = 153.0
+offset_bottom = 169.0
+text = " Set data "
+
+[node name="exit_btn" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(20, 20)
+offset_left = 170.0
+offset_top = 15.0
+offset_right = 190.0
+offset_bottom = 35.0
+shortcut = SubResource("Shortcut_cnu2e")
+
+[node name="SpritesheetUiFlat" type="Sprite2D" parent="Panel/exit_btn"]
+position = Vector2(10, 10)
+texture = ExtResource("2_5cugj")
+region_enabled = true
+region_rect = Rect2(552, 200, 15, 15)
+
+[connection signal="pressed" from="Panel/exit_btn" to="." method="_on_exit_btn_pressed"]

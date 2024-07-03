@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://16b3bvcujgv0"]
+[gd_scene load_steps=2 format=3 uid="uid://bj7a83d3sbo7"]
 
 [ext_resource type="PackedScene" uid="uid://hbyhutf62i2f" path="res://scenes/components/State.tscn" id="1_m5qa0"]
 
@@ -6,6 +6,7 @@
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
+follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="BG"]
 anchors_preset = 15
@@ -13,7 +14,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.741176, 0.352941, 0.152941, 0.980392)
 
+[node name="Panel" type="Panel" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="State" parent="." instance=ExtResource("1_m5qa0")]
-position = Vector2(236, 259)
+position = Vector2(371, 259)

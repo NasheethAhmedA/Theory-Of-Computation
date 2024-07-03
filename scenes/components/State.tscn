@@ -1,12 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://hbyhutf62i2f"]
+[gd_scene load_steps=6 format=3 uid="uid://hbyhutf62i2f"]
 
 [ext_resource type="Texture2D" uid="uid://dijio4j67yw5p" path="res://assests/components/State_bg.png" id="1_taun7"]
+[ext_resource type="Script" path="res://scripts/components/State.gd" id="1_vqttk"]
+[ext_resource type="PackedScene" uid="uid://cfs32i124fif6" path="res://scenes/ui/state_form.tscn" id="3_k1dcx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmk2m"]
+radius = 78.3135
 
 [sub_resource type="LabelSettings" id="LabelSettings_b6e3j"]
 font_size = 76
 font_color = Color(0, 0, 0, 1)
 
 [node name="State" type="Node2D"]
+script = ExtResource("1_vqttk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cmk2m")
+
+[node name="final_state_bg" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(6.23826, 6.23826)
+texture = ExtResource("1_taun7")
 
 [node name="state_bg" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
@@ -26,3 +44,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "q"
 label_settings = SubResource("LabelSettings_b6e3j")
+
+[node name="State_Form" parent="." instance=ExtResource("3_k1dcx")]
+visible = false
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

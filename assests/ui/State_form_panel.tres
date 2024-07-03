@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dga3l82o36y6o"]
+
+[ext_resource type="Texture2D" uid="uid://dkq8wriafjlon" path="res://assests/ui/Spritesheets/Spritesheet_UI_Flat.png" id="1_epuds"]
+
+[resource]
+texture = ExtResource("1_epuds")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(225, 33, 94, 94)
