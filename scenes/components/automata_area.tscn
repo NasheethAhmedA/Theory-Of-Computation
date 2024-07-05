@@ -27,3 +27,5 @@ mouse_filter = 2
 
 [node name="State" parent="." instance=ExtResource("1_m5qa0")]
 position = Vector2(371, 259)
+Final = true
+State_Name = "M"

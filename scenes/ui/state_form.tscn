@@ -42,7 +42,7 @@ offset_right = 86.0
 offset_bottom = 42.0
 text = "name"
 
-[node name="LineEdit" type="LineEdit" parent="Panel"]
+[node name="NameEdit" type="LineEdit" parent="Panel"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 43.0
@@ -55,7 +55,7 @@ max_length = 3
 expand_to_text_length = true
 clear_button_enabled = true
 
-[node name="CheckBox" type="CheckBox" parent="Panel"]
+[node name="isFinal" type="CheckBox" parent="Panel"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 88.0
@@ -70,7 +70,7 @@ keep_pressed_outside = true
 text = "final"
 flat = true
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Set_btn" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 143.0
@@ -80,6 +80,7 @@ text = " Set data "
 
 [node name="exit_btn" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
 offset_left = 170.0
 offset_top = 15.0
 offset_right = 190.0
@@ -92,4 +93,8 @@ texture = ExtResource("2_5cugj")
 region_enabled = true
 region_rect = Rect2(552, 200, 15, 15)
 
+[connection signal="text_changed" from="Panel/NameEdit" to="." method="_on_name_edit_text"]
+[connection signal="text_submitted" from="Panel/NameEdit" to="." method="_on_name_edit_text"]
+[connection signal="toggled" from="Panel/isFinal" to="." method="_on_is_final_toggled"]
+[connection signal="pressed" from="Panel/Set_btn" to="." method="_on_set_btn_pressed"]
 [connection signal="pressed" from="Panel/exit_btn" to="." method="_on_exit_btn_pressed"]
