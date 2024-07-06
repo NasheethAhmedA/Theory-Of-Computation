@@ -15,6 +15,8 @@ class_name State extends Node2D
 
 var Selected: bool = false
 var dragged: bool = false
+var colliding: bool = false
+@onready var prev_pos: = global_position
 
 func _input(event):
 	if Selected:
@@ -27,6 +29,7 @@ func _input(event):
 		if event.is_action_pressed("Lclick"):
 			dragged = true
 		if event.is_action_released("Lclick"):
+			prev_pos = global_position
 			dragged = false
 			
 
@@ -34,15 +37,18 @@ func _input(event):
 func _ready():
 	set_state_data()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if dragged:
+	if dragged and not colliding:
 		global_position = lerp(global_position, get_global_mouse_position() , 25*_delta)
+	elif colliding:
+		global_position = prev_pos
+		colliding = false
 
 func set_state_data():
-	label.text = State_Name.substr(0, 3)
-	final_state_bg.visible = Final
+	if label and final_state_bg:
+		label.text = State_Name.substr(0, 3)
+		final_state_bg.visible = Final
 
 func _on_area_2d_mouse_entered():
 	Selected = true
@@ -56,4 +62,12 @@ func _on_state_form_on_data_change(New_Name, New_Final):
 	State_Name = New_Name
 	Final = New_Final
 	set_state_data()
-	
+
+
+
+func _on_collider_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.global_position == global_position:
+		global_position = Vector2(0, 0)
+		print("move it")
+	else:
+		colliding = true

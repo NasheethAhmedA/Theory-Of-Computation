@@ -5,6 +5,7 @@
 
 [node name="AutomataArea" type="Node2D"]
 script = ExtResource("1_3v33r")
+State_Scene = ExtResource("1_m5qa0")
 
 [node name="BG" type="ParallaxBackground" parent="."]
 layer = -1

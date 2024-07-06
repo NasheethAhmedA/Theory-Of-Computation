@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var State_Scene: PackedScene
+
 @onready var cam = $Cam
 @onready var panel = $BG/Panel
 
@@ -7,6 +9,12 @@ var zoomTarget: Vector2
 var DragStartMousePos := Vector2.ZERO
 var DragStartCamPos := Vector2.ZERO
 var dragging := false
+
+func _input(event):
+	if event.is_action_pressed("new_state"):
+		var new_state = State_Scene.instantiate()
+		new_state.global_position = get_global_mouse_position()
+		add_child(new_state)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,9 +29,9 @@ func _process(delta):
 
 
 func zoom(delta):
-	if Input.is_action_just_pressed("scroll_down"):
-		zoomTarget *= 1.1
 	if Input.is_action_just_pressed("scroll_up"):
+		zoomTarget *= 1.1
+	if Input.is_action_just_pressed("scroll_down"):
 		zoomTarget *= 0.9
 		
 	cam.zoom = cam.zoom.slerp(zoomTarget, 10*delta)

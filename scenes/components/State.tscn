@@ -14,11 +14,11 @@ font_color = Color(0, 0, 0, 1)
 [node name="State" type="Node2D"]
 script = ExtResource("1_vqttk")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Collider" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
 shape = SubResource("CircleShape2D_cmk2m")
 
 [node name="final_state_bg" type="Sprite2D" parent="."]
@@ -46,8 +46,8 @@ text = "q"
 label_settings = SubResource("LabelSettings_b6e3j")
 
 [node name="State_Form" parent="." instance=ExtResource("3_k1dcx")]
-visible = false
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="area_shape_entered" from="Collider" to="." method="_on_collider_area_shape_entered"]
+[connection signal="mouse_entered" from="Collider" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Collider" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="on_data_change" from="State_Form" to="." method="_on_state_form_on_data_change"]
