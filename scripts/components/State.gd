@@ -38,7 +38,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if dragged:
-		global_position = lerp(global_position, get_viewport().get_mouse_position(), 25*_delta)
+		global_position = lerp(global_position, get_global_mouse_position() , 25*_delta)
 
 func set_state_data():
 	label.text = State_Name.substr(0, 3)
