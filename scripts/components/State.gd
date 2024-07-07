@@ -71,3 +71,7 @@ func _on_collider_area_shape_entered(area_rid, area, area_shape_index, local_sha
 		print("move it")
 	else:
 		colliding = true
+
+
+func _on_state_form_delete_pressed():
+	queue_free()

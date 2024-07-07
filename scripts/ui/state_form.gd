@@ -1,6 +1,7 @@
 extends Control
 
 signal on_data_change(New_Name, New_Final)
+signal delete_pressed
 
 @onready var name_edit = $Panel/NameEdit
 @onready var is_final = $Panel/isFinal
@@ -29,3 +30,12 @@ func _on_name_edit_text(new_text):
 func _on_is_final_toggled(toggled_on):
 	final = toggled_on
 
+
+
+func _on_delete_btn_pressed():
+	delete_pressed.emit()
+
+
+func _on_name_edit_text_submitted(new_text):
+	on_data_change.emit(Name, final)
+	visible =false

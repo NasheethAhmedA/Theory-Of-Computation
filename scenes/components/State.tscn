@@ -46,8 +46,10 @@ text = "q"
 label_settings = SubResource("LabelSettings_b6e3j")
 
 [node name="State_Form" parent="." instance=ExtResource("3_k1dcx")]
+mouse_filter = 0
 
 [connection signal="area_shape_entered" from="Collider" to="." method="_on_collider_area_shape_entered"]
 [connection signal="mouse_entered" from="Collider" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Collider" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="delete_pressed" from="State_Form" to="." method="_on_state_form_delete_pressed"]
 [connection signal="on_data_change" from="State_Form" to="." method="_on_state_form_on_data_change"]
