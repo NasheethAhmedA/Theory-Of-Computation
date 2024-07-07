@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhnu5x8ywhjgy"]
+
+[ext_resource type="PackedScene" uid="uid://bj7a83d3sbo7" path="res://scenes/components/automata_area.tscn" id="1_5637h"]
+[ext_resource type="Script" path="res://scripts/playgrounds/dfa.gd" id="1_b3qo3"]
+[ext_resource type="Texture2D" uid="uid://dgx0kovx46occ" path="res://assests/ui/Menu_normal.png" id="2_f3dsl"]
+[ext_resource type="Texture2D" uid="uid://fmhxr26yxsia" path="res://assests/ui/Menu_hover.png" id="2_wkfea"]
+[ext_resource type="StyleBox" uid="uid://dga3l82o36y6o" path="res://assests/ui/State_form_panel.tres" id="3_t4pt0"]
+
+[node name="DFA" type="Node2D"]
+script = ExtResource("1_b3qo3")
+
+[node name="AutomataArea" parent="." instance=ExtResource("1_5637h")]
+position = Vector2(-4, -16)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuArea" type="Panel" parent="CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_t4pt0")
+
+[node name="MenuBtn" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_top = 24.0
+offset_right = -25.0
+offset_bottom = 75.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_f3dsl")
+texture_pressed = ExtResource("2_wkfea")
+texture_hover = ExtResource("2_wkfea")
+stretch_mode = 0
+
+[connection signal="mouse_exited" from="CanvasLayer/MenuArea" to="." method="_on_menu_area_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MenuBtn" to="." method="_on_menu_btn_pressed"]
