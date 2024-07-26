@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1uksueyhc2b0"]
+
+[ext_resource type="Script" path="res://scripts/ui/music_player.gd" id="1_hyr4w"]
+[ext_resource type="AudioStream" uid="uid://brlowr834edqj" path="res://assests/ui/sfx/Wood Block1.wav" id="1_o5sxc"]
+[ext_resource type="AudioStream" uid="uid://bn2ychfyl3sj4" path="res://assests/ui/sfx/Wood Block2.wav" id="2_dugsm"]
+[ext_resource type="AudioStream" uid="uid://b48or1isgrl8p" path="res://assests/ui/sfx/Wood Block3.wav" id="3_rqy3j"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_hyr4w")
+
+[node name="hover_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_o5sxc")
+volume_db = 3.0
+
+[node name="unhover_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dugsm")
+volume_db = 3.0
+
+[node name="press_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rqy3j")
+volume_db = 3.0

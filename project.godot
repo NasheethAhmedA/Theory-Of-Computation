@@ -11,8 +11,29 @@ config_version=5
 [application]
 
 config/name="Theory-of-computation"
+config/description="this game is made to simplify
+and gamify the concepts in
+toc."
+config/version="0.0.1"
+run/main_scene="res://scenes/ui/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0.466667, 0.823529, 1)
+boot_splash/image="res://icon.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
+
+[autoload]
+
+MusicPlayer="*res://scenes/ui/music_player.tscn"
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "orange",
+"res://assests/": "teal",
+"res://scenes/": "green",
+"res://scripts/": "pink"
+}
 
 [gui]
 

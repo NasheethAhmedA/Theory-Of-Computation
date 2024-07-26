@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhnu5x8ywhjgy"]
+[gd_scene load_steps=10 format=3 uid="uid://bhnu5x8ywhjgy"]
 
 [ext_resource type="PackedScene" uid="uid://bj7a83d3sbo7" path="res://scenes/components/automata_area.tscn" id="1_5637h"]
 [ext_resource type="Script" path="res://scripts/playgrounds/dfa.gd" id="1_b3qo3"]
 [ext_resource type="Texture2D" uid="uid://dgx0kovx46occ" path="res://assests/ui/Menu_normal.png" id="2_f3dsl"]
 [ext_resource type="Texture2D" uid="uid://fmhxr26yxsia" path="res://assests/ui/Menu_hover.png" id="2_wkfea"]
 [ext_resource type="StyleBox" uid="uid://dga3l82o36y6o" path="res://assests/ui/State_form_panel.tres" id="3_t4pt0"]
+[ext_resource type="PackedScene" uid="uid://dcuf88s218ncf" path="res://scenes/ui/aphabet.tscn" id="4_w2ry0"]
+[ext_resource type="Texture2D" uid="uid://dkq8wriafjlon" path="res://assests/ui/Spritesheets/Spritesheet_UI_Flat.png" id="5_0kysh"]
+[ext_resource type="FontFile" uid="uid://donqiurahky62" path="res://assests/ui/Fonts/ThaleahFat.ttf" id="5_w75wr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aklcg"]
 
 [node name="DFA" type="Node2D"]
 script = ExtResource("1_b3qo3")
@@ -15,6 +20,7 @@ position = Vector2(-4, -16)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MenuArea" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(324, 0)
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -23,7 +29,120 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_t4pt0")
 
+[node name="title" type="RichTextLabel" parent="CanvasLayer/MenuArea"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "
+[center][u]DFA Tuple[/u][/center]"
+
+[node name="Qlabel" type="Label" parent="CanvasLayer/MenuArea"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 74.0
+offset_right = 231.0
+offset_bottom = 107.0
+text = "set of states:"
+
+[node name="Qdata" type="Label" parent="CanvasLayer/MenuArea"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 107.0
+offset_right = 324.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "{ q, x ,y }"
+horizontal_alignment = 1
+
+[node name="AplhaLabel" type="Label" parent="CanvasLayer/MenuArea"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 149.0
+offset_right = 287.0
+offset_bottom = 182.0
+text = "set of alphabets:"
+
+[node name="AlphaContainer" type="HBoxContainer" parent="CanvasLayer/MenuArea"]
+layout_mode = 0
+offset_top = 179.0
+offset_right = 324.0
+offset_bottom = 219.0
+alignment = 1
+
+[node name="Aphabet" parent="CanvasLayer/MenuArea/AlphaContainer" instance=ExtResource("4_w2ry0")]
+layout_mode = 2
+char = "0"
+
+[node name="Aphabet2" parent="CanvasLayer/MenuArea/AlphaContainer" instance=ExtResource("4_w2ry0")]
+layout_mode = 2
+char = "1"
+
+[node name="AplhaChar" type="LineEdit" parent="CanvasLayer/MenuArea"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 221.0
+offset_right = 195.0
+offset_bottom = 262.0
+theme_override_fonts/font = ExtResource("5_w75wr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aklcg")
+alignment = 1
+max_length = 1
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="AlphaInput" type="Button" parent="CanvasLayer/MenuArea"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 182.0
+offset_top = 221.0
+offset_right = 222.0
+offset_bottom = 262.0
+tooltip_text = "press to add alphabet"
+shortcut_feedback = false
+shortcut_in_tooltip = false
+
+[node name="SpritesheetUiFlat" type="Sprite2D" parent="CanvasLayer/MenuArea/AlphaInput"]
+self_modulate = Color(0.2, 0, 0, 1)
+position = Vector2(20, 20)
+rotation = 0.785398
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_0kysh")
+region_enabled = true
+region_rect = Rect2(552, 200, 15, 15)
+
+[node name="coming soon" type="Label" parent="CanvasLayer/MenuArea"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 274.0
+offset_right = 287.0
+offset_bottom = 307.0
+text = "other features
+are
+coming soon..."
+
+[node name="BackBtn" type="Button" parent="CanvasLayer/MenuArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -26.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_vertical = 0
+text = "back to menu"
+
 [node name="MenuBtn" type="TextureButton" parent="CanvasLayer"]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -37,5 +156,11 @@ texture_pressed = ExtResource("2_wkfea")
 texture_hover = ExtResource("2_wkfea")
 stretch_mode = 0
 
-[connection signal="mouse_exited" from="CanvasLayer/MenuArea" to="." method="_on_menu_area_mouse_exited"]
+[connection signal="new_state_added" from="AutomataArea" to="." method="_on_automata_area_new_state_added"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuArea/AlphaInput" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuArea/AlphaInput" to="." method="_on_btn_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MenuArea/AlphaInput" to="." method="_on_alpha_input_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MenuArea/BackBtn" to="." method="_on_btn_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MenuArea/BackBtn" to="." method="_on_btn_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MenuArea/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuBtn" to="." method="_on_menu_btn_pressed"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcuf88s218ncf"]
+
+[ext_resource type="StyleBox" uid="uid://dga3l82o36y6o" path="res://assests/ui/State_form_panel.tres" id="1_li4dl"]
+[ext_resource type="Script" path="res://scripts/ui/aphabet.gd" id="2_jypmx"]
+
+[node name="Aphabet" type="Panel"]
+self_modulate = Color(1, 0.423529, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Left Click to delete"
+theme_override_styles/panel = ExtResource("1_li4dl")
+script = ExtResource("2_jypmx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 36.0
+offset_bottom = 32.0
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal new_state_added(state)
+
 @export var State_Scene: PackedScene
 
 @onready var cam = $Cam
@@ -15,10 +17,11 @@ func _input(event):
 		var new_state = State_Scene.instantiate()
 		new_state.global_position = get_global_mouse_position()
 		add_child(new_state)
+		new_state_added.emit(new_state)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	new_state_added.emit($State)
 	zoomTarget = cam.zoom
 
 
