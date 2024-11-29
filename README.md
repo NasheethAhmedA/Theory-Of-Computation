@@ -30,21 +30,21 @@ So this is a Game that makes the learning experience of TOC in an exciting and f
 ### FILE STRUCTURE
 ```yaml
 root:
-	addons:
-	assests:
-		components
-		ui:
-			fonts
-			sfx
-			spritesheets
-	scenes:
-		components
-		playgrounds
-		ui
-	scripts:
-		components
-		playgrounds
-		ui
+-------->addons:
+-------->assests:
+---------------->components
+---------------->ui:
+------------------------>fonts
+------------------------>sfx
+------------------------>spritesheets
+-------->scenes:
+---------------->components
+---------------->playgrounds
+---------------->ui
+---------------->scripts:
+---------------->components
+---------------->playgrounds
+---------------->ui
 ```
 
 ### SEPARATE SCENES
@@ -83,4 +83,4 @@ root:
 
 ### TRY IT HERE
 You can directly compile this project for any platform of your wish.
-Or you can use this link to try it out in windows [toc_debug_v0.0.1.rar](https://www.mediafire.com/file/x7cmu2c8mylblg6/toc_debug_v0.0.1.rar/file)
+Or you can Try out a Debug release in windows [toc_debug_v0.0.1.zip](https://github.com/NasheethAhmedA/Theory-Of-Computation/releases/tag/windows).
